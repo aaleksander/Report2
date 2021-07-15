@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.3
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLisp", "Lisp\RLisp.csproj", "{65B0CECB-F24E-4EBF-B2CF-2843F2520275}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests_RLisp", "UnitTests\UnitTests_RLisp.csproj", "{D467F5E7-BFEC-4158-85ED-F9BFA9E98108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor\Editor.csproj", "{33B3B47E-9A18-42CA-AB4B-04862398FE41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests_Report", "UnitTests_Report\UnitTests_Report.csproj", "{4393BCC3-1A1B-4E6E-98C0-447062CF2666}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65B0CECB-F24E-4EBF-B2CF-2843F2520275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B0CECB-F24E-4EBF-B2CF-2843F2520275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B0CECB-F24E-4EBF-B2CF-2843F2520275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B0CECB-F24E-4EBF-B2CF-2843F2520275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D467F5E7-BFEC-4158-85ED-F9BFA9E98108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D467F5E7-BFEC-4158-85ED-F9BFA9E98108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D467F5E7-BFEC-4158-85ED-F9BFA9E98108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D467F5E7-BFEC-4158-85ED-F9BFA9E98108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33B3B47E-9A18-42CA-AB4B-04862398FE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33B3B47E-9A18-42CA-AB4B-04862398FE41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33B3B47E-9A18-42CA-AB4B-04862398FE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33B3B47E-9A18-42CA-AB4B-04862398FE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4393BCC3-1A1B-4E6E-98C0-447062CF2666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4393BCC3-1A1B-4E6E-98C0-447062CF2666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4393BCC3-1A1B-4E6E-98C0-447062CF2666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4393BCC3-1A1B-4E6E-98C0-447062CF2666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

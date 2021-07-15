@@ -1,0 +1,10 @@
+D:\dev\Report2\UnitTests_Report\bin\Release\UnitTests_Report.dll
+D:\dev\Report2\UnitTests_Report\bin\Release\Editor.exe
+D:\dev\Report2\UnitTests_Report\bin\Release\NUnit.Framework.dll
+D:\dev\Report2\UnitTests_Report\bin\Release\RLisp.dll
+D:\dev\Report2\UnitTests_Report\bin\Release\ICSharpCode.AvalonEdit.dll
+D:\dev\Report2\UnitTests_Report\bin\Release\Newtonsoft.Json.dll
+D:\dev\Report2\UnitTests_Report\bin\Release\Newtonsoft.Json.xml
+D:\dev\Report2\UnitTests_Report\obj\Release\UnitTests_Report.csprojResolveAssemblyReference.cache
+D:\dev\Report2\UnitTests_Report\obj\Release\UnitTests_Report.dll
+D:\dev\Report2\UnitTests_Report\bin\Release\HighLighting.xml

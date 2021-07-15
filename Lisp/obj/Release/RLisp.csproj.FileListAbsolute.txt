@@ -1,0 +1,5 @@
+D:\dev\Report2\Lisp\bin\Release\RLisp.dll
+D:\dev\Report2\Lisp\bin\Release\Newtonsoft.Json.dll
+D:\dev\Report2\Lisp\bin\Release\Newtonsoft.Json.xml
+D:\dev\Report2\Lisp\obj\Release\RLisp.dll
+D:\dev\Report2\Lisp\obj\Release\RLisp.csprojResolveAssemblyReference.cache

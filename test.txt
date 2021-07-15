@@ -1,0 +1,96 @@
+﻿(def fnt1 12) (# основной шрифт)
+(def a "конец параграфа")
+
+(page (width 21.7) (height 27)
+	(par (text-alignment Center) (font-size fnt1)
+		"бла-бла-бла"
+		)
+
+	(par (margin 0 10 0 0)
+		(run (font-size 12) "Таблица 1 Исходные данные")
+		(run (font-style bold) "Жирный текст"))
+
+	(# таблица)
+	(table (columns 100 150 100)
+		(row 
+			(cell 
+				(par "Первая ячейка"))
+			(cell
+				(par "вторая ячейка"))
+		)
+		(foreach i in (json table_1)
+			(row
+				(cell 
+					(par ($ .delta (round 3))))
+				(cell
+					(par ($ .Qii)))
+			)
+		)
+	)
+)
+
+
+
+
+
+
+
+<SyntaxDefinition name="Scheme" extensions=".sls;.sps;.ss;.scm" 
+     xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <Color foreground="Green" name="Comment" />
+  <Color foreground="Blue" name="Syntax" />
+  <Color foreground="Blue" name="Library Syntax" />
+  <Color foreground="Blue" name="Auxilliary Syntax" />
+  <Color foreground="DarkMagenta" name="Procedure" />
+
+  <RuleSet>
+    <Import ruleSet="Expression"/>
+  </RuleSet>
+
+    <RuleSet name="Expression">
+        <Span color="Comment" multiline="false">
+            <Begin>;</Begin>
+        </Span>
+    <Span color="Comment" multiline="true" >
+      <Begin>\#\|</Begin>
+      <End>\|\#</End>
+    </Span>
+    <Span ruleSet="Expression" multiline="true" >
+      <Begin fontWeight="bold">\(</Begin>
+      <End fontWeight="bold">\)</End>
+    </Span>
+    <Span  ruleSet="Expression" multiline="true">
+      <Begin fontWeight="bold">\#\(</Begin>
+      <End fontWeight="bold">\)</End>
+    </Span>
+
+    <Keywords color="Library Syntax">
+      <Word>import</Word>
+      <Word>export</Word>
+      <Word>library</Word>
+    </Keywords>
+
+    <Keywords color="Syntax">
+      <Word>define</Word>
+      <Word>set!</Word>
+      <Word>lambda</Word>
+      <Word>begin</Word>
+      <Word>if</Word>
+      <Word>cond</Word>
+      <Word>let</Word>
+      <Word>letrec</Word>
+    </Keywords>
+
+    <Keywords color="Auxilliary Syntax">
+      <Word>else</Word>
+    </Keywords>
+
+    <Keywords color="Procedure">
+      <Word>map</Word>
+      <Word>cons</Word>
+      <Word>car</Word>
+    </Keywords>
+
+  </RuleSet>
+
+</SyntaxDefinition>

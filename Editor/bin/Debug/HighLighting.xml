@@ -1,0 +1,98 @@
+﻿<SyntaxDefinition name="Scheme" extensions=".sls;.sps;.ss;.scm" 
+     xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <Color foreground="Green" name="Comment" />
+  <Color foreground="Blue" name="Syntax" />
+  <Color foreground="Green" name="Report" />
+  <Color foreground="Gray" name="Params" />
+  <Color foreground="Magenta" fontWeight="bold" name="String" />
+
+  <RuleSet>
+    <Import ruleSet="Expression"/>
+  </RuleSet>
+
+  <RuleSet name="Expression">
+    <Span color="Comment" multiline="false">
+      <Begin>;</Begin>
+    </Span>
+
+    <Span color="Comment" multiline="true" >
+      <Begin>\#\|</Begin>
+      <End>\|\#</End>
+    </Span>
+
+    <Span ruleSet="Expression" multiline="true" >
+      <Begin fontWeight="bold">\(</Begin>
+      <End fontWeight="bold">\)</End>
+    </Span>
+
+    <Span  ruleSet="Expression" multiline="true">
+      <Begin fontWeight="bold">\#\(</Begin>
+      <End fontWeight="bold">\)</End>
+    </Span>
+
+    <!-- Digits -->
+    <Rule foreground="Magenta">
+        \b0[xX][0-9a-fA-F]+  # hex number
+    |    \b
+        (    \d+(\.[0-9]+)?   #number with optional floating point
+        |    \.[0-9]+         #or just starting with floating point
+        )
+        ([eE][+-]?[0-9]+)? # optional exponent
+    </Rule>
+
+    <Span color="String" multiline="true">
+        <Begin>"</Begin>
+        <End>"</End>
+        <RuleSet>
+            <!-- nested span for escape sequences -->
+            <Span begin="\\" end="." />
+        </RuleSet>
+    </Span>
+
+    <Keywords color="Syntax">
+      <Word>def</Word>
+      <Word>loop</Word>
+      <Word>if</Word>
+      <Word>else</Word>
+      <Word>in</Word>
+      <Word>json</Word>
+      <Word>list</Word>
+      <Word>set!</Word>
+    </Keywords>
+
+    <Keywords color="Params">
+      <Word>:margin</Word>
+      <Word>:page-padding</Word>
+      <Word>:line-height</Word>
+      <Word>:text-align</Word>
+      <Word>:font-family</Word>
+      <Word>:font-size</Word>
+      <Word>:font-weight</Word>
+      <Word>:page-width</Word>
+      <Word>:page-height</Word>
+      <Word>:cell-spacing</Word>
+      <Word>:columns</Word>
+      <Word>:border</Word>
+      <Word>:column-span</Word>
+      <Word>:row-span</Word>
+    </Keywords>
+
+    <Keywords fontWeight="bold" color="Report" >
+      <Word>page</Word>
+      <Word>par</Word>
+      <Word>par-c</Word>
+      <Word>par-l</Word>
+      <Word>par-r</Word>
+      <Word>par-j</Word>
+      <Word>table</Word>
+      <Word>underline</Word>
+      <Word>save-space</Word>
+      <Word>row</Word>
+      <Word>cell</Word>
+
+      <Word>baseline</Word>
+      <Word>subscript</Word>
+      <Word>superscript</Word>
+    </Keywords>
+  </RuleSet>
+</SyntaxDefinition>

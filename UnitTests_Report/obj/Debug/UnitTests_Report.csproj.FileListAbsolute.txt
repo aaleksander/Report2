@@ -1,0 +1,13 @@
+D:\dev\Report2\UnitTests_Report\bin\Debug\UnitTests_Report.dll
+D:\dev\Report2\UnitTests_Report\bin\Debug\UnitTests_Report.pdb
+D:\dev\Report2\UnitTests_Report\bin\Debug\Editor.exe
+D:\dev\Report2\UnitTests_Report\bin\Debug\NUnit.Framework.dll
+D:\dev\Report2\UnitTests_Report\bin\Debug\RLisp.dll
+D:\dev\Report2\UnitTests_Report\bin\Debug\ICSharpCode.AvalonEdit.dll
+D:\dev\Report2\UnitTests_Report\bin\Debug\Newtonsoft.Json.dll
+D:\dev\Report2\UnitTests_Report\bin\Debug\Editor.pdb
+D:\dev\Report2\UnitTests_Report\bin\Debug\RLisp.pdb
+D:\dev\Report2\UnitTests_Report\bin\Debug\Newtonsoft.Json.xml
+D:\dev\Report2\UnitTests_Report\obj\Debug\UnitTests_Report.csprojResolveAssemblyReference.cache
+D:\dev\Report2\UnitTests_Report\obj\Debug\UnitTests_Report.dll
+D:\dev\Report2\UnitTests_Report\obj\Debug\UnitTests_Report.pdb

@@ -1,0 +1,7 @@
+D:\dev\Report2\UnitTests\obj\Release\UnitTests_RLisp.csprojResolveAssemblyReference.cache
+D:\dev\Report2\UnitTests\bin\Release\UnitTests_RLisp.dll
+D:\dev\Report2\UnitTests\bin\Release\Newtonsoft.Json.dll
+D:\dev\Report2\UnitTests\bin\Release\NUnit.Framework.dll
+D:\dev\Report2\UnitTests\bin\Release\RLisp.dll
+D:\dev\Report2\UnitTests\bin\Release\Newtonsoft.Json.xml
+D:\dev\Report2\UnitTests\obj\Release\UnitTests_RLisp.dll

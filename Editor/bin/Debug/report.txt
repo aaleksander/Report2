@@ -1,0 +1,223 @@
+(def small 9)
+(def normal 12)
+
+(def (ud s)
+	 (up-down normal small small s)
+)
+
+;единицы измерения
+(def m3 (ud "м^3"))
+(def m3-ch (ud "м^3_/ч"))
+(def c-1 (ud "^o_C^-1"))
+(def c (ud "^o_C"))
+
+;перенос строки
+(def lb "<LineBreak/>" 
+)
+
+(page
+	(:page-padding 2 1 1 1)
+	(:page-height 29.7)
+	(:page-width 21)
+	(:font-size normal)
+	(:font-family "Times New Roman")
+
+(def sep ",") ;разделитель дробной части
+
+(def (rnd a b)
+	(format (:after-dot b) (:sep sep) (:round)  a)
+)
+
+(par (:font-size 14) (:text-indent 50)  
+	"
+	Окно переходов насосного агрегата служит для оператора 
+	как средство задания программы перехода с одного насосного 
+	агрегата на другой. (ddd)"
+)
+;шапка
+	(par-c (:font-weight bold)
+		 "ПРОТОКОЛ поверки № "
+		 (json Num)
+	)
+
+	(par-c (:font-weight bold)
+		"преобразователя объемного расхода 
+		модели(типа)" 
+		(json PR_Type) 
+		"по МИ 3380-2012"
+	)
+
+	(par-l (:margin 0 10 0 0)
+		"Место проведения поверки:" 
+		(underline 
+			(save-space 
+				"                                             "
+				"СИКН 3, НПС Забродино                                          "
+			)			
+		)		
+	)
+
+	(par-c (:font-size small) (:margin 70 0 0 0)
+		"наименование объекта (ПСП, НПС) и наименование владельца объекта"
+	)
+
+	(par-l (:margin 0 10 0 0)
+		"Поверяемый преобразователь: тип(модель) " (underline (save-space " " (json PR_Type)  " ")) ", " 
+		"DN " (underline (save-space "  " (json DN))) " мм, "
+		"PN "(underline (save-space "  " (json PR_PN))) " МПа," 
+		"зав № " (underline (save-space "  " (json PR_ManufNum) "  " )) " ," 
+		"<LineBreak/>"
+		"установлен на " (underline (save-space "                       СИКН 3                     ")) " ," 
+		"ИЛ№ "(underline (save-space "  " (json LineNum))) " ,"
+		"Рабочая жидкость " (underline (save-space "  " (json OilType) "  " )) "."
+	)
+
+	(par (:margin 100 0) (:font-size 10) "СИКН (СИКН, СИКНП, СИКЖУ")
+
+	(par-l (:margin 0 10 0 0)
+		"ПУ  " (underline (save-space "                  " (json PU_Type) "                 " )) ", "
+		"разряд " (underline (save-space "    "    (json PU_Accuracy) "   "  )) ","
+		"зав№ " (underline (save-space "   "    (json PU_ManufNum) "   "    )) ","
+		"PN " (underline (save-space "   "     (json PU_PN) "   "    )) ","
+		"дата поверки " (underline (save-space "     " (json PU_PoverDate) "     ")) "."
+	)
+
+	(par (:margin 30 0) (:font-size 8) "ТПУ (стацион. или моб.) или компакт-прувер, тип")
+;конец шапки
+
+	(par (:margin 0 10 0 0)
+		"Таблица 1 - Исходные данные")
+
+	(table (:cell-spacing 0) (:margin 0)
+		   (:columns 60	60 60 60 60 60 60 60 60 70 70)
+		(row
+			(cell (:column-span 9) (:border 1 1 1 1)
+				(par-c "Поверочной установки (ПУ)")
+			)
+			(cell (:border 0 1 1 1)
+				(par-c "СОИ")
+			)
+			(cell (:border 0 1 1 1)
+				(par-c "Преобразователя")
+			)
+		)
+
+		(row
+			(cell (:border 1 0 1 1)	(par-c "Детекто-<LineBreak/>ры ПУ"))
+			(cell (:border 0 0 1 1)	(par-c (ud "V_0^^ПУ_,") lb m3 ))
+			(cell (:border 0 0 1 1)	(par-c (ud "&#x03B4;_ПУ^,") lb m3 ))
+			(cell (:border 0 0 1 1)	(par-c "D," lb "мм"))
+			(cell (:border 0 0 1 1)	(par-c "s," lb "мм"))
+			(cell (:border 0 0 1 1)	(par-c "E," lb "МПа"))
+			(cell (:border 0 0 1 1)	(par-c (ud "&#x03B1;_i^^ПУ_,") lb c-1))
+			(cell (:border 0 0 1 1)	(par-c (ud "&#x03B1;_i^^ст,") lb c-1))
+			(cell (:border 0 0 1 1)	(par-c (ud "&#x2206;t_ПУ^,") lb c))
+			(cell (:border 0 0 1 1)	(par-c (ud "&#x03B4;_СОИ^^(К)_, %")))
+			(cell (:border 0 0 1 1)	(par-c (ud "&#x2206;t_ПР^,") lb c))
+		)
+		;определим ячейку для одного значения
+		(def (tmp1 a)
+			(cell (:border 0 0 1 1) (:row-span 2) 
+				(par-c (:margin 0 7) a)
+			)
+		)
+		(row
+			(cell (:border 1 0 1 1)				
+				(par-c
+					(json Table1.m_DetNum[0])
+				) ;форматировать как детектора
+			)
+			(cell (:border 0 0 1 1)
+				(par-c (json Table1.m_Vo[0]) ) ;RndWay3380.VolRnd
+			)
+			(tmp1 (json Table1.m_delta_pu)) ;RndWay3380.VolRnd
+			(tmp1 (json Table1.m_D)) ;
+			(tmp1 (json Table1.m_S)) ;
+			(tmp1 (json Table1.m_E)) ;RndWay3380.PressRnd
+			(tmp1 (json Table1.m_alpha_pu))
+			(tmp1 (json Table1.m_alpha_st))
+			(tmp1 (json Table1.m_delta_tpu)) ;RndWay3380.TempRnd
+			(tmp1 (json Table1.m_delta_SOI)) ;RndWay3380.DeltaRnd
+			(tmp1 (json Table1.m_delta_tpr)) ;RndWay3380.TempRnd
+		)
+
+		(row
+			(cell (:border 1 0 1 1)
+				(par-c
+					(json Table1.m_DetNum[1]) ;:-
+				)
+			)
+			(cell (:border 0 0 1 1) 
+				(par-c
+					(json Table1.m_Vo[1]) ;RndWay3380.VolRnd
+				) 
+			)
+		)
+	) ;таблица 1 закончилась
+
+
+
+
+	(par (:margin 0 10 0 0) "Таблица 2 - Результаты измерений и вычислений")
+	(table (:cell-spacing 0) (:margin 0) 
+		   (:columns 60 60 60 60 60 60 60 60 60 70 70)
+		(row
+			(cell (:border 1 1 1 0) (:row-span 2) 
+				(par-c "№ точ/№изм<LineBreak/> (i/j)")
+			)
+			(cell (:border 0 1 1 0) (:row-span 2)
+				(par-c (ud "Q_ij^,") lb m3-ch)
+			)
+			(cell (:border 0 1 1 1) (:column-span 9)
+				(par-c "Результаты измерений" )
+			)
+		)
+
+		(row
+			(cell (:border 0 0 1 0)	(par-c "Детекто-<LineBreak/>ры ПУ"))
+			(cell (:border 0 0 1 0) (par-c (ud "T_ij^, ") c))
+			(cell (:border 0 0 1 0)	(par-c (ud "t^ПУ__ij^, ") c))
+			(cell (:border 0 0 1 0)	(par-c (ud "P^ПУ__ij^,") lb "МПа"))
+			(cell (:border 0 0 1 0)	(par-c (ud "t^ст__ij^,") c))
+			(cell (:border 0 0 1 0)	(par-c (ud "&#x0192;_ij^,") "Гц")) 
+			(cell (:border 0 0 1 0) (par-c (ud "t^ПР__ij^,") c))
+			(cell (:border 0 0 1 0) (par-c (ud "P^ПР__ij^, МПа")))
+			(cell (:border 0 0 1 0) (par-c (ud "N_ij^, имп")))
+		)
+
+		;сквозная строка
+		(row
+			(loop c in (list 1 2 3 4 5 6 7 8 9 10 11)
+				(if (= c 1) ;для первой ячейки другой бордюр
+					(cell (:border 1 1 1 1) (par-c c))
+				else
+					(cell (:border 0 1 1 1) (par-c c))
+				)
+			)
+		)
+
+		(def (tmp a)
+			(cell (:border 0 0 1 1)
+				(par-c a)
+			)
+		)
+
+		(loop d in (json Table2)
+			(row
+				(cell (:border 1 0 1 1)
+					(par-c d.m_num_series "/" d.m_num_meas)
+				)
+				(tmp d.m_Q)
+				(tmp d.m_DetNum) ;- детекторы
+				(tmp d.m_T) ;:RndWay3380.TimeRnd
+				(tmp d.m_Tpy) ;:RndWay3380.TempRnd
+				(tmp d.m_Ppy) ;RndWay3380.PressRnd
+				(tmp d.m_Tst) ;RndWay3380.TempRnd
+				(tmp d.m_F) ;RndWay3380.FreqRnd
+				(tmp d.m_Tpr) ;RndWay3380.TempRnd
+				(tmp d.m_Ppr) ;RndWay3380.PressRnd
+				(tmp d.m_N) ;RndWay3380.ImpQtyRnd
+			)
+		)
+	);конец таблицы 2
+)

@@ -1,0 +1,218 @@
+(def small 9)
+
+;единицы измерения
+(def (m3)
+	(baseline "м")
+	(superscript "3")
+)
+
+(def (c-1)
+	(superscript "o")
+	(baseline "C")
+	(superscript "-1")
+)
+
+(def (c)
+	(superscript "o")
+	(baseline "C")
+)
+
+
+(page 
+	(:page-padding 2 1 1 1)
+	(:page-height 29.7)
+	(:page-width 21)
+	(:font-size 12)
+	(:font-family "Times New Roman")
+
+;шапка
+	(par (:text-align center) (:font-weight bold)
+		 "ПРОТОКОЛ поверки № "
+		 (json Num)
+	)
+
+	(par (:text-align center) (:font-weight bold)
+		"преобразователя объемного расхода 
+		модели(типа)" 
+		(json PR_Type) 
+		"по МИ 3380-2012"
+	)
+
+	(par (:text-align left) (:margin 0 10 0 0)
+		"Место проведения поверки:" 
+		(underline 
+			(save-space 
+				"                                             "
+				"СИКН 124, НПС \"Калейкино\"                                             "
+			)
+		).
+	)
+
+	(par (:text-align center) (:font-size small) (:margin 70 0 0 0)
+		"наименование объекта (ПСП, НПС) и наименование владельца объекта"
+	)
+
+	(par (:text-align left) (:margin 0 10 0 0)
+		"Поверяемый преобразователь: тип(модель) " (underline (save-space " " (json PR_Type)  " ")) ", " 
+		"DN " (underline (save-space "  " (json DN))) " мм, "
+		"PN "(underline (save-space "  " (json PR_PN))) " МПа," 
+		"зав № " (underline (save-space "  " (json PR_ManufNum) "  " )) " ," 
+		"<LineBreak/>"
+		"установлен на " (underline (save-space "                       СИКН 124                     ")) " ," 
+		"ИЛ№ "(underline (save-space "  " (json LineNum))) " ,"
+		"Рабочая жидкость " (underline (save-space "  " (json OilType) "  " )) "."
+	)
+
+	(par (:margin 100 0) (:font-size 10) "СИКН (СИКН, СИКНП, СИКЖУ")
+
+	(par (:text-align left) (:margin 0 10 0 0)
+		"ПУ  " (underline (save-space "                  " (json PU_Type) "                 " )) ", "
+		"разряд " (underline (save-space "    "    (json PU_Accuracy) "   "  )) ","
+		"зав№ " (underline (save-space "   "    (json PU_ManufNum) "   "    )) ","
+		"PN " (underline (save-space "   "     (json PU_PN) "   "    )) ","
+		"дата поверки " (underline (save-space "     " (json PU_PoverDate) "     ")) "."
+	)
+
+	(par (:margin 30 0) (:font-size 8) "ТПУ (стацион. или моб.) или компакт-прувер, тип")
+;конец шапки
+
+
+	(par 
+		"Таблица 1 - Исходные данные")
+
+	(table (:cell-spacing 0)
+		   (:columns 60	60 60 60 60 60 60 60 60 70 70)
+		(row
+			(cell (:column-span 9) (:border 1 1 1 1)
+				(par (:text-align center) "Поверочной установки (ПУ)")
+			)
+			(cell (:border 0 1 1 1)
+				(par (:text-align center) "СОИ")
+			)
+			(cell (:border 0 1 1 1)
+				(par (:text-align center) "Преобразователя")
+			)
+		)
+
+		(row
+			(cell (:border 1 0 1 1)
+				(par (:text-align center)
+					"Детекто-<LineBreak/>ры ПУ"
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline "V")
+					(subscript (:font-size small) "0")
+					(superscript (:font-size small) "ПУ")
+					(baseline (save-space ", "))
+					(m3)
+				)
+			)
+			
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline (:font-size 16) "&#x03B4;")
+					(subscript (:font-size small) "ПУ")
+					(baseline ",<LineBreak/>")
+					(m3)
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					"D,<LineBreak/>mm"
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					"s,<LineBreak/>mm"
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					"E,<LineBreak/>МПа"
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline "&#x03B1;")
+					(subscript (:font-size small) "i" )
+					(superscript (:font-size small) "ПУ")
+					(baseline ",") "<LineBreak/>"
+					(c-1)
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline "&#x03B1;")
+					(subscript (:font-size small) "i")
+					(superscript (:font-size small) "ст")
+					(baseline ",<LineBreak/>" (c-1))
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline "&#x2206;t")
+					(subscript (:font-size small) "ПУ" )
+					(baseline ",<LineBreak/>")
+					(c)
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline "&#x03B4;")
+					(subscript (:font-size small) "СОИ")
+					(superscript (:font-size small) "(К)")
+					(baseline ", %")
+				)
+			)
+			(cell (:border 0 0 1 1)
+				(par (:text-align center)
+					(baseline "&#x2206;t")
+					(subscript (:font-size small) "ПР")
+					(baseline ",<LineBreak/>")
+					(c)
+				)
+			)
+		)
+		;определим ячейку для одного значения
+		(def (tmp1 a)
+			(cell (:border 0 0 1 1) (:row-span 2)
+				(par (:text-align center) a)
+			)
+		)
+		(row
+			(cell (:border 1 0 1 1)
+				(par (:text-align center) 
+					(json Table1.m_DetNum[0])
+				) ;форматировать как детектора
+			)
+			(tmp1 (json Table1.m_Vo[0]) ) ;RndWay3380.VolRnd
+			(tmp1 (json Table1.m_delta_pu)) ;RndWay3380.VolRnd
+			(tmp1 (json Table1.m_D)) ;
+			(tmp1 (json Table1.m_S)) ;
+			(tmp1 (json Table1.m_E)) ;RndWay3380.PressRnd
+			(tmp1 (json Table1.m_alpha_pu))
+			(tmp1 (json Table1.m_alpha_st))
+			(tmp1 (json Table1.m_delta_tpu)) ;RndWay3380.TempRnd
+			(tmp1 (json Table1.m_delta_SOI)) ;RndWay3380.DeltaRnd
+			(tmp1 (json Table1.m_delta_tpr)) ;RndWay3380.TempRnd
+		)
+
+		(row
+			(cell (:border 1 0 1 1)
+				(par (:text-align center)
+					(json Table1.m_DetNum[1]) ;:-
+				)
+			)
+			(cell (:border 0 0 1 1) 
+				(par (:text-align center) 
+					(json Table1.m_Vo[1]) ;RndWay3380.VolRnd
+				) 
+			)
+		)
+	) ;таблица 1 закончилась
+
+
+	
+)

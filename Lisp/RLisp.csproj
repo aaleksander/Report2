@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{65B0CECB-F24E-4EBF-B2CF-2843F2520275}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RLisp</RootNamespace>
+    <AssemblyName>RLisp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <Prefer32Bit>False</Prefer32Bit>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>C:\Program Files %28x86%29\SharpDevelop\4.4\bin\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ReachFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Printing">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Environment.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Function.cs" />
+    <Compile Include="InnerObject.cs" />
+    <Compile Include="Interpreter.cs" />
+    <Compile Include="Loop.cs" />
+    <Compile Include="Operators.cs" />
+    <Compile Include="Paginator\DepObjExt.cs" />
+    <Compile Include="Paginator\PimpedPaginator.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Previewer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDSL\Attributes.cs" />
+    <Compile Include="ReportDSL\Formats.cs" />
+    <Compile Include="ReportDSL\Page.cs" />
+    <Compile Include="ReportDSL\Paragraph.cs" />
+    <Compile Include="ReportDSL\Parameters.cs" />
+    <Compile Include="ReportDSL\ReportEnvironment.cs" />
+    <Compile Include="ReportDSL\Format.cs" />
+    <Compile Include="ReportDSL\Table.cs" />
+    <Compile Include="ReportDSL\XamlOperatorBase.cs" />
+    <Compile Include="StateMachine.cs" />
+    <Compile Include="TextEditors\BracketHighlightRenderer.cs" />
+    <Compile Include="TextEditors\Completer.cs" />
+    <Compile Include="TextEditors\MVVMTextEditor.cs" />
+    <Compile Include="TextEditors\TemplateEditor.cs" />
+    <Compile Include="TreeNodes\TreeNodeBase.cs" />
+    <Compile Include="TreeNodes\TreeNodeDots.cs" />
+    <Compile Include="TreeNodes\TreeNodeExpression.cs" />
+    <Compile Include="TreeNodes\TreeNodeIdent.cs" />
+    <Compile Include="TreeNodes\TreeNodeModifier.cs" />
+    <Compile Include="TreeNodes\TreeNodeNumber.cs" />
+    <Compile Include="TreeNodes\TreeNodeRoot.cs" />
+    <Compile Include="TreeNodes\TreeNodeString.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HighLighting.xml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Paginator" />
+    <Folder Include="ReportDSL" />
+    <Folder Include="TextEditors" />
+    <Folder Include="TreeNodes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProfilingSessions\Session20151112_171542.sdps" />
+    <Content Include="ProfilingSessions\Session20151112_171738.sdps" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

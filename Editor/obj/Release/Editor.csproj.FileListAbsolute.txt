@@ -1,0 +1,15 @@
+D:\dev\Report2\Editor\bin\Release\Editor.exe
+D:\dev\Report2\Editor\bin\Release\RLisp.dll
+D:\dev\Report2\Editor\bin\Release\Newtonsoft.Json.dll
+D:\dev\Report2\Editor\bin\Release\Newtonsoft.Json.xml
+D:\dev\Report2\Editor\obj\Release\Editor.csprojResolveAssemblyReference.cache
+D:\dev\Report2\Editor\obj\Release\Window1.g.cs
+D:\dev\Report2\Editor\obj\Release\App.g.cs
+D:\dev\Report2\Editor\obj\Release\Editor_Content.g.cs
+D:\dev\Report2\Editor\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\dev\Report2\Editor\obj\Release\Editor_MarkupCompile.cache
+D:\dev\Report2\Editor\obj\Release\Editor_MarkupCompile.lref
+D:\dev\Report2\Editor\obj\Release\Window1.baml
+D:\dev\Report2\Editor\obj\Release\Editor.g.resources
+D:\dev\Report2\Editor\obj\Release\Editor.exe
+D:\dev\Report2\Editor\bin\Release\HighLighting.xml
