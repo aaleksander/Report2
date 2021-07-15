@@ -4,7 +4,7 @@
 Получает данные из JSON-строки и генерит FlowDocument, пригодный для экспорта в pdf-файл.
 Получает контролировать отчет вплоть до черточки, что очень любят метрологи :-)
 
-![пример](https://github.com/aaleksander/HomeInvestor/blob/master/Screens/scr_01.PNG)
+![пример](https://github.com/aaleksander/Report2/blob/master/Screens/scr_01.PNG)
 
 
 Описание синтаксиса
